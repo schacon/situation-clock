@@ -35,7 +35,13 @@
   <script>
     function startClock() {
       $(".location").html(params.location);
-      startTime();
+
+      if(params.location == 'epoch') {
+        $('.time').css('font-size', '100px');
+        startEpochTime();
+      } else {
+        startTime();
+      }
     }
 
     function startTime() {
@@ -57,6 +63,13 @@
         i="0" + i;
         }
       return i;
+    }
+
+    function startEpochTime() {
+      var tick = Math.round((new Date).valueOf() / 1000)
+
+      $('.time').html(tick.toString())
+      setTimeout(function(){startEpochTime()},500);
     }
 
     var params = {};
