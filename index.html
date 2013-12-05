@@ -10,23 +10,23 @@
       src: local(ds_digib), url('digital.ttf') format('opentype');
     }
     .time {
+      margin: 30px;
       margin-top: 120px;
       font-family:ds_digib;
       font-size:250px;
       font-stretch:extra-expanded;
       color: #f00;
       background-color: #211;
-      width:800px;
       padding-top: 30px;
     }
     .location {
+      margin: 0px 30px;
       font-family:ds_digib;
       font-size:135px;
       font-stretch:extra-expanded;
       color: #df2;
       background-color: #202910;
-      width: 900px;
-      text-align: left;
+      text-align: center;
       padding: 15px 20px;
       padding-top: 30px;
     }
@@ -44,8 +44,9 @@
       var m=today.getMinutes();
       var s=today.getSeconds();
       // add a zero in front of numbers<10
+h = 8;
+      h=checkTime(h);
       m=checkTime(m);
-      s=checkTime(s);
       $('.time').html(h+":"+m)
       t=setTimeout(function(){startTime()},500);
     }
